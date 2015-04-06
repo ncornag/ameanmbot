@@ -31,7 +31,11 @@ var defaults = {
       /packtpub.com/,
       /newsin.tk0/,
       /newsin131.tk/,
-      /tdtechnosys.com/
+      /tdtechnosys.com/,
+      /blog.onadvertise.com/,
+      /blog.profitgoals.com/,
+      /blog.explodingads.com/,
+      /blog.offeryou.com/
     ],
     userfilters: [
       'vinceyue'
@@ -44,7 +48,7 @@ var defaults = {
     pingtime: process.env.SF_PING_TIME || 600,  // seconds
     title: 'MEAN tweets',
     description: 'Tweets about MEAN',
-    author: 'Nicolás Cornaglia'
+    author: 'Nicolï¿½s Cornaglia'
   },
   logger: {
     level: 'debug'

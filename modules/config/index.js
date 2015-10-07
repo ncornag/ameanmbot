@@ -15,6 +15,7 @@ var defaults = {
     maxSockets: 20                            // To change the default node config (5)
   },
   twitter: {
+    retweet: process.env.RETWEET?process.env.RETWEET=='true':false,
     consumer_key: process.env.TW_CONSUMER_KEY,
     consumer_secret: process.env.TW_CONSUMER_SECRET,
     access_token_key: process.env.TW_TOKEN_KEY,

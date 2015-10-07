@@ -69,15 +69,22 @@ var twitter = {
   },
 
   tweet: function(url, text, data) {
-    twit.retweetStatus(data.id_str, function (err, data) {
-      if (err) return logger.error('[twitter] error ' + err)
+    if(config.twitter.retweet) {
+      twit.retweetStatus(data.id_str, function (err, data) {
+        if (err) return logger.error('[twitter] error ' + err)
 
+        lp.push(new Date())
+        if (lp.length>100) lp.shift()
+        var tt = (lp[lp.length-1]-lp[0])/1000
+
+        logger.info('[twitter] retweeted [%s/h] [%s]', (lp.length/tt)*3600, url)
+      })
+    } else {
       lp.push(new Date())
       if (lp.length>100) lp.shift()
       var tt = (lp[lp.length-1]-lp[0])/1000
-
-      logger.info('[twitter] retweeted [%s/h] [%s]', (lp.length/tt)*3600, url)
-    })
+      logger.info('[twitter] not retweeted [%s/h] [%s]', (lp.length/tt)*3600, url)
+    }
   }
 }
 
